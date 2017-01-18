@@ -16,24 +16,6 @@ require_once('includes/functions-template/section-header.php');
 require_once('includes/functions-template/section-grid.php');
 require_once('includes/functions-template/section-slider.php');
 
-// Includes: WooCommerce
-require_once('woocommerce/woo-functions.php');
-require_once('includes/functions-woocommerce/cart-update.php');
-
-// Add support for WooCommerce
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-  add_theme_support( 'woocommerce' );
-}
-
-// Change the WooCommerce paypal icon
-add_filter('woocommerce_paypal_icon', 'custom_woocommerce_paypal_icon');
-
-function custom_woocommerce_paypal_icon( $url ) {
-  $url = get_bloginfo('template_url')."/img/pay-paypal.svg";
-  return $url;
-}
-
 // Initialize mobile detect
 require_once('includes/mobile-detect.php');
 $detect = new Mobile_Detect;
