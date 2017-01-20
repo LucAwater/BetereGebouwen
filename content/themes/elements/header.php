@@ -10,7 +10,7 @@
 <!--[if IE 9]>    <html class="no-js lt-ie10" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--> <html <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-  <title>YOUR SITE</title>
+  <title>Betere Gebouwen</title>
 
   <link rel="canonical" href="<?php echo home_url(); ?>">
 
@@ -28,6 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/app.css">
 
   <!-- WP_HEAD() -->
@@ -38,7 +39,7 @@
   <!-- Header -->
   <header>
     <a class="link-logo" href="<?php echo home_url(); ?>">
-      <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo.svg">
+      <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo.png">
     </a>
 
     <nav>

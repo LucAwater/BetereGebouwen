@@ -31,7 +31,19 @@ if( have_posts() ):
         <h2><?php echo $subtitle; ?></h2>
       </header>
 
-      <?php echo $content; ?>
+      <?php
+      if( have_rows('content') ):
+        while( have_rows('content') ): the_row();
+
+          if( get_row_layout() == 'text' ):
+            get_template_part( 'elements/text' );
+          elseif( get_row_layout() == 'image' ):
+            get_template_part( 'elements/image' );
+          endif;
+
+        endwhile;
+      endif;
+      ?>
     </article>
 
     <?php

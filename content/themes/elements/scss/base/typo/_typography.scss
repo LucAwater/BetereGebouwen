@@ -1,0 +1,31 @@
+body{
+  @include openSans;
+
+  font-size: 16px;
+}
+
+@mixin font-medium{
+  font-weight: 600;
+  @content;
+}
+
+@mixin font-bold{
+  font-weight: 700;
+  @content;
+}
+
+h1{
+  font-size: 4.5em;
+}
+
+h2{
+  font-size: 2em;
+}
+
+p{
+  font-size: 1em;
+}
+
+b, strong{
+  @include font-medium;
+}
