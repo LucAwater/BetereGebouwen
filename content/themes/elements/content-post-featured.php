@@ -6,10 +6,18 @@ $category_link = get_category_link( $category[0]->term_id );
 $content = wpautop( get_the_content() );
 $permalink = get_the_permalink();
 $date = get_the_date();
-$thumb = get_the_post_thumbnail( $post->ID, 'medium' );
+$thumb = get_the_post_thumbnail( $post->ID, 'large' );
+
+if ($post_count == 0) {
+  $post_class = "post--featured s-8 column";
+} else if ($post_count == 1) {
+  $post_class = "post--featured s-5 column";
+} else {
+  $post_class = "post--featured s-3 column";
+}
 ?>
 
-<li class="post s-8 column">
+<li class="<?php echo $post_class; ?>">
   <figure>
     <?php echo $thumb; ?>
   </figure>

@@ -103,7 +103,7 @@ gulp.task('media', function () {
 
 gulp.task('watch', function () {
     browserSync.init({
-        proxy: "http://localhost:8888/ppp-wp",
+        proxy: "http://localhost:8888/beteregebouwen",
         notify: false
     });
 

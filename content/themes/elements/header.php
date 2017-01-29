@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Stylesheet -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/app.css">
 
   <!-- WP_HEAD() -->
@@ -38,21 +38,23 @@
 <body <?php body_class(); ?>>
   <!-- Header -->
   <header>
-    <a class="link-logo" href="<?php echo home_url(); ?>">
-      <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo.png">
-    </a>
+    <div class="header__body">
+      <a class="link-logo" href="<?php echo home_url(); ?>">
+        <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo.png">
+      </a>
 
-    <nav>
-      <?php
-      $nav = array(
-        'theme_location'  => 'menu_primary',
-        'container'       => '',
-        'items_wrap'      => '<ul>%3$s</ul>'
-      );
+      <nav class="filter">
+        <ul>
+          <li class="is-active"><a href="<?php echo home_url(); ?>">All articles</a></li>
 
-      wp_nav_menu( $nav );
-      ?>
-    </nav>
+          <?php
+          foreach( get_categories(array('hide_empty' => 0)) as $cat ){
+            echo '<li><a href="' . get_category_link($cat->cat_ID) . '">' . $cat->name . '</a></li>';
+          }
+          ?>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- Main content -->

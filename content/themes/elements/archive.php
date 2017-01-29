@@ -1,30 +1,26 @@
 <?php
 get_header();
 
+$post_count = 0;
+
 if( have_posts() ):
   ?>
 
-  <div class="filter">
-    <nav>
-      <ul>
-        <?php
-        foreach( get_categories(array('hide_empty' => 0)) as $cat ){
-          echo '<li><a data="' . $cat->slug . '">' . $cat->name . '</a></li>';
-        }
-        ?>
-      </ul>
-    </nav>
-  </div>
-
-  <?php
-  elements_posts_start();
-
+  <section class="posts">
+    <?php
     while( have_posts() ): the_post();
-      get_template_part( 'content', 'post' );
+      if ($post_count < 3) {
+        include 'content-post-featured.php';
+      } else {
+        include 'content-post.php';
+      }
+
+      $post_count++;
     endwhile;
+    ?>
+  </section>
 
-  elements_posts_end();
-
+<?php
 else:
   get_template_part( 'content', 'none' );
 endif;

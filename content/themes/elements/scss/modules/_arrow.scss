@@ -20,15 +20,4 @@
   &.arrow-up{
     @include transform( rotate(225deg) );
   }
-
-  // Used in hero element
-  &.arrow-scroll{
-    left: 0;
-    right: 0;
-    bottom: 30px;
-    position: absolute;
-    z-index: $zIndex-arrow;
-
-    margin: auto;
-  }
 }

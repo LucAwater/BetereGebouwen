@@ -1,5 +1,4 @@
 a{
-  @extend %base;
   @include transition( .2s );
 
   font-size: 1em;
@@ -33,15 +32,14 @@ article a{
 nav a{
   padding-bottom: 0;
 
-  color: $black;
+  color: $grey-text;
+  font-size: 14px;
+  letter-spacing: 0.4px;
   text-decoration: none;
-  border-bottom: thin solid transparent;
 
   &:hover,
   &:focus{
-    padding-bottom: 5px;
 
-    border-bottom: thin solid $black;
   }
 }
 
