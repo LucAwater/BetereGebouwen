@@ -1,37 +1,20 @@
-// Transformations
-@mixin transform($transforms) {
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-  transform: $transforms;
-}
-
-@mixin transform-origin( $origin ){
-  -webkit-transform-origin: $origin;
-  -moz-transform-origin: $origin;
-  transform-origin: $origin;
-}
-
-@mixin transition( $transition ) {
-  -webkit-transition: $transition;
-  -moz-transition: $transition;
-  -ms-transition: $transition;
-  -o-transition: $transition;
-  transition: $transition;
+@mixin flexbox(){
+    -js-display: flex;
+    display: flex;
+    @content;
 }
 
 // Hiding and showing objects
 @mixin hide( $time ){
-  @include transition( $time );
-
   opacity: 0;
   visibility: hidden;
+
+  transition: $time;
 }
 
 @mixin show( $time ){
-  @include transition( $time );
-
   opacity: 1;
   visibility: visible;
+
+  transition: $time;
 }

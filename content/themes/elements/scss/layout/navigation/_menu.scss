@@ -3,14 +3,14 @@ a.trigger-menu{
   height: 35px;
   display: block;
   position: relative;
-  
+
   i{
     width: 100%;
     height: 3px;
     display: block;
     top: calc(50% - 1.5px);
     background: $black;
-    
+
     &:before,
     &:after{
       content: " ";
@@ -20,11 +20,11 @@ a.trigger-menu{
       background: $black;
       transition: .2s;
     }
-    
+
     &:before{
       margin-top: -8px;
     }
-    
+
     &:after{
       margin-top: 8px;
     }
@@ -36,11 +36,11 @@ a.trigger-menu:hover i{
   &:after{
     transition: .2s;
   }
-  
+
   &:before{
     margin-top: -11px;
   }
-  
+
   &:after{
     margin-top: 11px;
   }
@@ -50,9 +50,9 @@ a.trigger-menu:hover i{
   50%{
     margin-top: 0;
   }
-  
+
   100%{
-    @include transform( rotate(45deg) );
+    transform: rotate(45deg);
   }
 }
 
