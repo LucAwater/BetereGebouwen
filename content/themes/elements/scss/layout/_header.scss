@@ -2,18 +2,25 @@ body > header{
   z-index: $zIndex-header;
 
   width: 100%;
-  height: $header-height;
 
-  background-color: $white;
-  border-bottom: thin solid $grey;
+  background-color: $color-white;
+  border-bottom: thin solid $color-grey;
 
   .header__body{
     @include flexbox{
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
     }
 
-    height: 100%;
-    padding: 40px 15px 10px;
+    .link-logo{
+      height: 60px;
+      margin: 40px 0;
+      display: inline-block;
+
+      img{
+        width: auto;
+        height: 100%;
+      }
+    }
   }
 }

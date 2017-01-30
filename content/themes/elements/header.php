@@ -37,20 +37,21 @@
 
 <body <?php body_class(); ?>>
   <!-- Header -->
-  <header>
+  <header class="header">
     <div class="header__body">
       <a class="link-logo" href="<?php echo home_url(); ?>">
-        <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo.png">
+        <img src="<?php echo bloginfo( 'template_directory' ); ?>/img/logo_payoff.svg">
       </a>
 
       <nav class="filter">
         <ul>
-          <li class="is-active"><a href="<?php echo home_url(); ?>">All articles</a></li>
-
           <?php
-          foreach( get_categories(array('hide_empty' => 0)) as $cat ){
-            echo '<li><a href="' . get_category_link($cat->cat_ID) . '">' . $cat->name . '</a></li>';
-          }
+          $nav = array(
+            'theme_location'  => 'menu_primary',
+            'container'       => '',
+            'items_wrap'      => '<ul>%3$s</ul>'
+          );
+          wp_nav_menu( $nav );
           ?>
         </ul>
       </nav>

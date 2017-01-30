@@ -17,9 +17,6 @@
 // This is the default html and body font-size for the base rem value.
 $rem-base: 16px;
 
-// Don't worry about padding, header's elements are vertically centered with flex
-$header-height: 150px;
-
 // (Extra) margin at either side of content
 $space-sides: rem-calc(100);
 $space-sides-small: rem-calc(60);

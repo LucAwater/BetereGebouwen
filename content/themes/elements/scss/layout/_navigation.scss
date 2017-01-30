@@ -1,0 +1,16 @@
+.header nav{
+  width: 100%;
+
+  text-align: center;
+  border-top: thin solid $color-grey;
+
+  ul{
+    li{
+      display: inline-block;
+
+      a{
+        text-transform: uppercase;
+      }
+    }
+  }
+}
