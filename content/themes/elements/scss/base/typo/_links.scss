@@ -23,51 +23,57 @@ article a{
 }
 
 // Navigation in header
-nav a{
-  @include font-medium{
-    color: $color-grey-text;
-    font-size: 14px;
-    letter-spacing: 0.4px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+nav{
+  a{
+    @include font-medium{
+      color: $color-grey-text;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
 
-  padding: 20px 0;
-  margin: 0 15px;
-  display: block;
+    padding: 20px 0;
+    margin: 0 15px;
+    display: block;
 
-  transition: .35s;
-
-  &:after{
-    @include hide(.35s);
-
-    content: "";
-
-    bottom: 0;
-    left: 0;
-    position: absolute;
-
-    width: 100%;
-    height: 3px;
-
-    background-color: $color-black;
-  }
-
-  &:hover,
-  &:focus{
-    color: $color-black;
+    transition: .35s;
 
     &:after{
-      @include show(.35s);
+      @include hide(.35s);
+
+      content: "";
+
+      bottom: 0;
+      left: 0;
+      position: absolute;
+
+      width: 100%;
+      height: 3px;
+
+      background-color: $color-black;
+    }
+
+    &:hover,
+    &:focus{
+      color: $color-black;
+
+      &:after{
+        @include show(.35s);
+      }
     }
   }
 }
 
-nav .current_page_parent,
-nav .current-menu-item{
-  a{
-    padding-bottom: 5px;
+nav ul li{
+  &.current-menu-parent,
+  &.current-menu-item{
+    a{
+      color: $color-black;
 
-    border-bottom: thin solid $color-black;
+      &:after{
+        @include show(.35s);
+      }
+    }
   }
 }

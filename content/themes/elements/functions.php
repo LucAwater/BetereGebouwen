@@ -46,6 +46,20 @@ function w3_flush_page_custom( $post_id ) {
   endif;
 }
 
+// Remove excess menu classes
+add_filter('nav_menu_css_class', 'menu_remove_classes', 100, 1);
+add_filter('nav_menu_item_id', 'menu_remove_classes', 100, 1);
+add_filter('page_css_class', 'menu_remove_classes', 100, 1);
+
+function menu_remove_classes($var) {
+  $allowed_classes = array(
+    "current-menu-item",
+    "current-menu-parent"
+  );
+
+  return is_array($var) ? array_intersect($var, $allowed_classes) : '';
+}
+
 /* Cleaner image captions */
 add_filter( 'img_caption_shortcode', 'cleaner_caption', 10, 3 );
 
