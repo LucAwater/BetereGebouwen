@@ -25,6 +25,6 @@ if ($post_count == 0) {
   <div>
     <p><?php echo $date; ?></p>
     <a href="<?php echo $category_link; ?>" class="post-category"><?php echo $category[0]->cat_name; ?></a>
-    <a class="post-title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+    <a class="post-title" href="<?php echo $permalink; ?>"><h2><?php echo $title; ?></h2></a>
   </div>
 </li>

@@ -1,26 +1,16 @@
 <?php
 get_header();
 
-$post_count = 0;
+$query_list = new WP_Query( array( 'posts_per_page' => 3, 'offset' => 3 ) );
 
-if( have_posts() ):
-  ?>
+if( $query_list->have_posts() ):
+  echo '<section class="list">';
+    while( $query_list->have_posts() ): $query_list->the_post();
+      include 'content-post.php';
 
-  <section class="posts">
-    <?php
-    while( have_posts() ): the_post();
-      if ($post_count < 3) {
-        include 'content-post-featured.php';
-      } else {
-        include 'content-post.php';
-      }
-
-      $post_count++;
+      wp_reset_postdata();
     endwhile;
-    ?>
-  </section>
-
-<?php
+  echo '</section>';
 else:
   get_template_part( 'content', 'none' );
 endif;

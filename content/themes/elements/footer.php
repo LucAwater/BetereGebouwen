@@ -2,7 +2,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>Created by <a href="http://lucawater.nl" target="_blank" rel="Link to creator's portfolio">Luc Awater</a></p>
+    
   </footer>
 
   <!-- Scripts -->

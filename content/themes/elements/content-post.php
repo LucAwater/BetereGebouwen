@@ -6,17 +6,21 @@ $category_link = get_category_link( $category[0]->term_id );
 $content = wpautop( get_the_content() );
 $permalink = get_the_permalink();
 $date = get_the_date();
-$thumb = get_the_post_thumbnail( $post->ID, 'medium' );
+$thumb = get_the_post_thumbnail( $post->ID, 'small' );
 ?>
 
-<li class="post s-8 column">
-  <figure>
-    <?php echo $thumb; ?>
-  </figure>
+<li class="post">
+  <div class="media">
+    <div class="media__image">
+      <a href="<?php echo $permalink; ?>"><?php echo $thumb; ?></a>
+    </div>
 
-  <div>
-    <p><?php echo $date; ?></p>
-    <a href="<?php echo $category_link; ?>" class="post-category"><?php echo $category[0]->cat_name; ?></a>
-    <a class="post-title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+    <div class="media__body">
+      <p class="post__meta">
+        <a href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a>
+        <span><?php echo $date; ?></span>
+      </p>
+      <a class="post__title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+    </div>
   </div>
 </li>
