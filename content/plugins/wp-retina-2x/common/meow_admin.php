@@ -255,15 +255,20 @@ if ( !class_exists( 'Meow_Admin' ) ) {
 				echo "</div>";
 			}
 			else if ( isset( $_GET['tool'] ) && $_GET['tool'] == 'error_log' ) {
+				$errorpath = ini_get( 'error_log' );
 				echo "<a href=\"javascript:history.go(-1)\">< Go back</a><br /><br />";
 				echo '<div id="error_log">';
-				echo "Now (auto-reload every 5 seconds):<br />[" . date( "d-M-Y H:i:s", time() ) . " UTC]<br /<br /><br />Errors (order by latest):";
-				$errorpath = ini_get( 'error_log' );
-				$errors = file_get_contents( $errorpath );
-				$errors = explode( "\n", $errors );
-				$errors = array_reverse( $errors );
-				$errors = implode( "<br />", $errors );
-				echo $errors;
+				if ( file_exists( $errorpath ) ) {
+					echo "Now (auto-reload every 5 seconds):<br />[" . date( "d-M-Y H:i:s", time() ) . " UTC]<br /<br /><br />Errors (order by latest):";
+					$errors = file_get_contents( $errorpath );
+					$errors = explode( "\n", $errors );
+					$errors = array_reverse( $errors );
+					$errors = implode( "<br />", $errors );
+					echo $errors;
+				}
+				else {
+					echo "The PHP Error Logs cannot be found. Please ask your hosting service for it.";
+				}
 				echo "</div>";
 
 			}
