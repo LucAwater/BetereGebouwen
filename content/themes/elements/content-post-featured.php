@@ -8,12 +8,10 @@ $permalink = get_the_permalink();
 $date = get_the_date();
 $thumb = get_the_post_thumbnail( $post->ID, 'large' );
 
-if ($post_count == 0) {
-  $post_class = "post--featured s-8 column";
-} else if ($post_count == 1) {
-  $post_class = "post--featured s-5 column";
+if ($post_count == 1) {
+  $post_class = "post--featured s-12 column";
 } else {
-  $post_class = "post--featured s-3 column";
+  $post_class = "post--featured s-4 column";
 }
 ?>
 

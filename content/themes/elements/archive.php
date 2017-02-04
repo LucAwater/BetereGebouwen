@@ -1,16 +1,28 @@
 <?php
 get_header();
 
-$query_list = new WP_Query( array( 'posts_per_page' => 3, 'offset' => 3 ) );
+$posts = new WP_Query( array('posts_per_page' => 10) );
 
-if( $query_list->have_posts() ):
-  echo '<section class="list">';
-    while( $query_list->have_posts() ): $query_list->the_post();
-      include 'content-post.php';
+$post_count = 1;
 
-      wp_reset_postdata();
-    endwhile;
-  echo '</section>';
+if ($posts->have_posts()) :
+    echo '<section>';
+        while ($posts->have_posts()) : $posts->the_post();
+            if ($post_count == 4) {
+                echo '</section><section>';
+            }
+
+            if( $post_count < 4) {
+                include 'content-post-featured.php';
+            } else {
+                include 'content-post.php';
+            }
+
+            $post_count++;
+
+            wp_reset_postdata();
+        endwhile;
+    echo '</section>';
 else:
   get_template_part( 'content', 'none' );
 endif;
