@@ -4,13 +4,23 @@ body{
   font-size: 16px;
 }
 
+@mixin font-light{
+    font-weight: 300;
+    @content;
+}
+
+@mixin font-regular{
+    font-weight: 400;
+    @content;
+}
+
 @mixin font-medium{
-  font-weight: 600;
+  font-weight: 700;
   @content;
 }
 
 @mixin font-bold{
-  font-weight: 700;
+  font-weight: 800;
   @content;
 }
 

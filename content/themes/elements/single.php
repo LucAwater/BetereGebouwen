@@ -1,21 +1,24 @@
 <?php
 get_header();
 
-if( have_posts() ):
-    while( have_posts() ): the_post();
+if (have_posts()) :
+    while (have_posts()) : the_post();
 
-        // Content (variables)
-        $title = get_the_title();
-        $content = wpautop( get_the_content() );
-        $readingTime = get_field('readingTime');
+        // Get featured image
+        $image_id = get_post_thumbnail_id();
+        $image = wp_get_attachment_image_src($image_id, 'large', true);
+        $image_url = $image[0];
+        $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
 
-        if( get_field('date') ){
+        // Get date
+        if (get_field('date')) {
             $date = get_field('date');
         } else {
             $date = get_the_date();
         }
 
-        if( get_field('displayCategory') ){
+        // Get category properties
+        if (get_field('displayCategory')) {
             $categoryField = get_field('displayCategory');
             $category = get_term_by('id', $categoryField, 'category');
             $category_name = $category->name;
@@ -27,6 +30,16 @@ if( have_posts() ):
         }
         ?>
 
+        <section class="section section-hero">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <article>
             <header class="container">
                 <div class="row">
@@ -35,8 +48,8 @@ if( have_posts() ):
                     </div>
                     <div class="col-md-7 col-md-offset-1">
                         <p><a href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
-                        <h1><?php echo $title; ?></h1>
-                        <p>Leestijd: <?php echo $readingTime; ?></p>
+                        <h1><?php get_the_title(); ?></h1>
+                        <p>Leestijd: <?php echo get_field('readingTime'); ?></p>
                     </div>
                 </div>
             </header>
@@ -81,7 +94,6 @@ if( have_posts() ):
             </footer>
 
             <!-- <div id="comments" class="comments-area">
-
             <?php
             //Get only the approved comments
             $args = array(

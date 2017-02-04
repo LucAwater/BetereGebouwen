@@ -1,22 +1,21 @@
 // BASE
-@import
-  "base/_normalize",
-  "base/_reset",
-  "base/_mixins",
-  "base/_colors",
+@import "base/_normalize";
+@import "base/_reset";
+@import "base/_mixins";
+@import "base/_colors";
 
-  "base/typo/_fonts",
-  "base/typo/_typography",
-  "base/typo/_links";
+@import "base/typo/_fonts";
+@import "base/typo/_typography";
+@import "base/typo/_links";
 
 // LAYOUT
-@import
-  "layout/_404",
-  "layout/_footer",
-  "layout/_header",
-  "layout/_html",
-  "layout/_layout",
-  "layout/_main",
-  "layout/_navigation";
+@import "layout/_404";
+@import "layout/_footer";
+@import "layout/_header";
+@import "layout/_html";
+@import "layout/_layout";
+@import "layout/_main";
+@import "layout/_navigation";
 
 // MODULE
+@import "modules/_section";
