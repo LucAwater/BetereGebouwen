@@ -28,31 +28,59 @@ if( have_posts() ):
         ?>
 
         <article>
-            <header>
-                <p><a href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
-                <h1><?php echo $title; ?></h1>
-                <p>Leestijd: <?php echo $readingTime; ?></p>
+            <header class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        author
+                    </div>
+                    <div class="col-md-7 col-md-offset-1">
+                        <p><a href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
+                        <h1><?php echo $title; ?></h1>
+                        <p>Leestijd: <?php echo $readingTime; ?></p>
+                    </div>
+                </div>
             </header>
 
-            <section class="section section-text">
-                <div class="section__body">
-                    <p><?php echo get_field('intro'); ?></p>
+            <section class="section section-text container">
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-3">
+                        <p><strong><?php echo get_field('intro'); ?></strong></p>
+                    </div>
                 </div>
             </section>
 
             <?php
-            if( have_rows('content') ):
-                while( have_rows('content') ): the_row();
-                    if( get_row_layout() == 'text' ):
-                        get_template_part( 'elements/text' );
-                    elseif( get_row_layout() == 'image' ):
-                        get_template_part( 'elements/image' );
-                    endif;
+            if (have_rows('content')) :
+                while (have_rows('content')) : the_row();
+
+                    if (get_row_layout() == 'text') {
+                        include 'elements/text.php';
+                    } elseif (get_row_layout() == 'quote') {
+                        include 'elements/quote.php';
+                    } elseif (get_row_layout() == 'image') {
+                        include 'elements/image.php';
+                    } elseif (get_row_layout() == 'video') {
+                        include 'elements/video.php';
+                    }
+
                 endwhile;
             endif;
             ?>
 
-          <div id="comments" class="comments-area">
+            <footer class="container">
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-3">
+                        <p>Vind je dit een interessant artikel? Deel het met je netwerk.</p>
+                        <ul>
+                            <li><a class="btn btn--linkedin" href="">Linkedin</a></li>
+                            <li><a class="btn btn--twitter" href="">Twitter</a></li>
+                            <li><a class="btn btn--facebook" href="">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- <div id="comments" class="comments-area">
 
             <?php
             //Get only the approved comments
@@ -75,7 +103,7 @@ if( have_posts() ):
             ?>
 
             <?php comment_form(); ?>
-          </div><!-- .comments-area -->
+            </div>-->
         </article>
 
     <?php
