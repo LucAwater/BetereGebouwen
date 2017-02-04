@@ -1,14 +1,8 @@
-// FOUNDATION
-@import
-  "layout/_settings",
-  "layout/foundation/_foundation";
-
 // BASE
 @import
   "base/_reset",
   "base/_mixins",
   "base/_colors",
-  "base/_z-index",
 
   "base/typo/_fonts",
   "base/typo/_typography",
@@ -22,24 +16,6 @@
   "layout/_html",
   "layout/_layout",
   "layout/_main",
-  "layout/_navigation",
-  "layout/_settings";
+  "layout/_navigation";
 
 // MODULE
-@import
-  "modules/_arrow",
-
-  "modules/content/_section",
-  "modules/content/_text",
-  "modules/content/_image",
-  "modules/content/_grid",
-
-  "modules/posts/_posts-thumb",
-  "modules/posts/_single";
-
-// STATE
-@import
-  "states/_global",
-  "states/_section",
-  "states/_typography",
-  "states/_fullwidth";
