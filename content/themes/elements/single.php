@@ -84,7 +84,7 @@ if (have_posts()) :
                 <div class="row">
                     <div class="col-md-7 col-md-offset-3">
                         <p>Vind je dit een interessant artikel? Deel het met je netwerk.</p>
-                        <ul>
+                        <ul class="list list--inline">
                             <li><a class="btn btn--linkedin" href="">Linkedin</a></li>
                             <li><a class="btn btn--twitter" href="">Twitter</a></li>
                             <li><a class="btn btn--facebook" href="">Facebook</a></li>
@@ -93,7 +93,8 @@ if (have_posts()) :
                 </div>
             </footer>
 
-            <!-- <div id="comments" class="comments-area">
+            <!--
+            <div id="comments" class="comments-area">
             <?php
             //Get only the approved comments
             $args = array(
@@ -115,7 +116,8 @@ if (have_posts()) :
             ?>
 
             <?php comment_form(); ?>
-            </div>-->
+            </div>
+            -->
         </article>
 
     <?php
