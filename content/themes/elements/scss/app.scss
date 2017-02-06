@@ -18,5 +18,10 @@
 @import "layout/_navigation";
 
 // MODULE
-@import "modules/_section";
+@import "modules/sections/_section";
+@import "modules/sections/_section-quote";
+@import "modules/sections/_section-text";
+
+@import "modules/_article";
+@import "modules/_figure";
 @import "modules/_links";

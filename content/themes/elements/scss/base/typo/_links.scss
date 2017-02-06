@@ -14,12 +14,7 @@ a{
 
 // Links in articles
 article section a{
-  border-bottom: thin solid $color-grey-text;
-
-  &:hover,
-  &:focus{
-    border-color: $color-black;
-  }
+  text-decoration: underline;
 }
 
 // Navigation in header

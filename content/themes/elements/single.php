@@ -47,17 +47,17 @@ if (have_posts()) :
                         author
                     </div>
                     <div class="col-md-7 col-md-offset-1">
-                        <p><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
-                        <h1><?php get_the_title(); ?></h1>
-                        <p>Leestijd: <?php echo get_field('readingTime'); ?></p>
+                        <small><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>
+                        <h1><?php the_title(); ?></h1>
+                        <small>Leestijd: <?php echo get_field('readingTime'); ?></small>
                     </div>
                 </div>
             </header>
 
-            <section class="section section-text container">
+            <section class="section section-text section-text--intro container">
                 <div class="row">
                     <div class="col-md-7 col-md-offset-3">
-                        <p><strong><?php echo get_field('intro'); ?></strong></p>
+                        <?php echo get_field('intro'); ?>
                     </div>
                 </div>
             </section>
