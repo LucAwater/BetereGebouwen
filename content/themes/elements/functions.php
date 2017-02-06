@@ -3,15 +3,16 @@
  * @package WordPress
  * @subpackage HTML5_Boilerplate */
 
+ // Add support for post-thumbnails
+ // https://codex.wordpress.org/Post_Thumbnails
+ add_theme_support( 'post-thumbnails' );
+
 // Includes
 require_once('includes/scripts.php');
+require_once('includes/media-sizes.php');
 
 // Hide admin bar
 add_filter('show_admin_bar', '__return_false');
-
-// Add support for post-thumbnails
-// https://codex.wordpress.org/Post_Thumbnails
-add_theme_support( 'post-thumbnails' );
 
 // Add support for automatic RSS feed links
 add_theme_support( 'automatic-feed-links' );

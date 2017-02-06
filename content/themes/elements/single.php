@@ -6,7 +6,7 @@ if (have_posts()) :
 
         // Get featured image
         $image_id = get_post_thumbnail_id();
-        $image = wp_get_attachment_image_src($image_id, 'fullwidth', true);
+        $image = wp_get_attachment_image_src($image_id, 'hero', true);
         $image_url = $image[0];
         $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
 
