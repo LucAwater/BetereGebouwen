@@ -6,7 +6,7 @@ if (have_posts()) :
 
         // Get featured image
         $image_id = get_post_thumbnail_id();
-        $image = wp_get_attachment_image_src($image_id, 'large', true);
+        $image = wp_get_attachment_image_src($image_id, 'fullwidth', true);
         $image_url = $image[0];
         $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
 
@@ -47,7 +47,7 @@ if (have_posts()) :
                         author
                     </div>
                     <div class="col-md-7 col-md-offset-1">
-                        <p><a href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
+                        <p><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <?php echo $date; ?></p>
                         <h1><?php get_the_title(); ?></h1>
                         <p>Leestijd: <?php echo get_field('readingTime'); ?></p>
                     </div>
