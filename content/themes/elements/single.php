@@ -17,6 +17,9 @@ if (have_posts()) :
             $date = get_the_date();
         }
 
+        // Get related posts
+        $related = get_field('relatedPosts');
+
         // Get category properties
         if (get_field('displayCategory')) {
             $categoryField = get_field('displayCategory');
@@ -92,6 +95,20 @@ if (have_posts()) :
                     </div>
                 </div>
             </footer>
+
+            <?php if ($related) : ?>
+                <section class="section section--bg">
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                            foreach ($related as $post) {
+                                include 'content-post.php';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>
 
             <!--
             <div id="comments" class="comments-area">
