@@ -54,7 +54,7 @@ echo '
             else:
               get_template_part( 'content', 'none' );
             endif;
-            echo '
+        echo '
         </div>
     </div>
 </section>';
@@ -62,26 +62,34 @@ echo '
 echo '
 <section class="section">
     <div class="container">
-        <div class="row">';
-            $posts_offset = 4;
-            if ($post_about) {
-                $posts_offset = 3;
-            }
-            $posts = new WP_Query( array(
-                'posts_per_page' => 10,
-                'offset' => $posts_offset,
-                'ignore_sticky_posts' => true,
-                'post__not_in' => array($post_about_id)
-            ) );
+        <div class="section__header row">
+            <div class="col-md-12">
+                <h2>Meer artikelen</h2>
+            </div>
+        </div>
 
-            if ($posts->have_posts()) :
-                while ($posts->have_posts()) : $posts->the_post();
-                    include 'content-post-list.php';
-                endwhile;
-            else:
-                get_template_part( 'content', 'none' );
-            endif;
+        <div class="row">
+            <div class="list--posts col-md-12">';
+                $posts_offset = 4;
+                if ($post_about) {
+                    $posts_offset = 3;
+                }
+                $posts = new WP_Query( array(
+                    'posts_per_page' => 10,
+                    'offset' => $posts_offset,
+                    'ignore_sticky_posts' => true,
+                    'post__not_in' => array($post_about_id)
+                ) );
+
+                if ($posts->have_posts()) :
+                    while ($posts->have_posts()) : $posts->the_post();
+                        include 'content-post-list.php';
+                    endwhile;
+                else:
+                    get_template_part( 'content', 'none' );
+                endif;
             echo '
+            </div>
         </div>
     </div>
 </section>';

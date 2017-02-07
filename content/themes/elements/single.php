@@ -47,7 +47,7 @@ if (have_posts()) :
             <header class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        author
+                        <!-- author -->
                     </div>
                     <div class="col-md-7 col-md-offset-1">
                         <small class="post-meta"><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>

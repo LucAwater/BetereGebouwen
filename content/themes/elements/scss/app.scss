@@ -3,6 +3,7 @@
 @import "base/_reset";
 @import "base/_mixins";
 @import "base/_colors";
+@import "base/_media-queries";
 
 @import "base/typo/_fonts";
 @import "base/typo/_typography";
@@ -19,6 +20,7 @@
 
 // MODULE
 @import "modules/sections/_section";
+@import "modules/sections/_section-hero";
 @import "modules/sections/_section-image";
 @import "modules/sections/_section-quote";
 @import "modules/sections/_section-text";
@@ -29,4 +31,5 @@
 @import "modules/_grid";
 @import "modules/_links";
 @import "modules/_lists";
+@import "modules/_media";
 @import "modules/_post";
