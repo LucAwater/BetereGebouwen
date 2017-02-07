@@ -11,14 +11,10 @@ $thumb = wp_get_attachment_image_src($thumb_id, 'medium', true);
 $thumb_url = $thumb[0];
 $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true);
 
-if ($post_count == 1) {
-    $post_class = "post--featured col-md-12";
-} else {
-    $post_class = "post--featured col-md-4";
-}
+
 ?>
 
-<li class="<?php echo $post_class; ?>">
+<li class="post--featured col-md-12">
     <figure>
         <img src="<?php echo $thumb_url; ?>" alt="<?php echo $thumb_alt ?>" />
     </figure>

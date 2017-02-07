@@ -1,0 +1,15 @@
+.post-meta{
+    @include font-regular{
+        color: $color-grey-text-light;
+    }
+
+    .link--category{
+        margin-right: 3px;
+
+        font-size: 1em;
+    }
+
+    time{
+        margin-left: 3px;
+    }
+}

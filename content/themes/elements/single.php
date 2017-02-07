@@ -50,7 +50,7 @@ if (have_posts()) :
                         author
                     </div>
                     <div class="col-md-7 col-md-offset-1">
-                        <small><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>
+                        <small class="post-meta"><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>
                         <h1><?php the_title(); ?></h1>
                         <small>Leestijd: <?php echo get_field('readingTime'); ?></small>
                     </div>
@@ -96,20 +96,6 @@ if (have_posts()) :
                 </div>
             </footer>
 
-            <?php if ($related) : ?>
-                <section class="section section--bg">
-                    <div class="container">
-                        <div class="row">
-                            <?php
-                            foreach ($related as $post) {
-                                include 'content-post.php';
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </section>
-            <?php endif; ?>
-
             <!--
             <div id="comments" class="comments-area">
             <?php
@@ -136,6 +122,28 @@ if (have_posts()) :
             </div>
             -->
         </article>
+
+        <?php if ($related) : ?>
+            <section class="section section--bg">
+                <div class="container">
+                    <div class="section__header row">
+                        <div class="col-md-12">
+                            <h2>Gerelateerde artikelen</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <ul class="grid">
+                            <?php
+                            foreach ($related as $post) {
+                                include 'content-post-grid.php';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
 
     <?php
   endwhile;

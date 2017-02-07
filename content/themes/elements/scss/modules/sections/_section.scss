@@ -1,4 +1,15 @@
 .section{
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 60px 15px;
+
+    &__header{
+        margin-bottom: 30px;
+    }
+
+    article &{
+        padding: 15px;
+    }
+
+    &--bg{
+        background-color: $color-grey-light;
+    }
 }
