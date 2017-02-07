@@ -1,11 +1,20 @@
 <?php
 get_header();
 
+$post_about = get_field('post_about', 'option');
+if ($post_about) {
+    $post_about_id = $post_about[0]->ID;
+}
+
 echo '
 <section class="section section--bg">
     <div class="container">
         <div class="row">';
-            $post_featured = new WP_Query( array('posts_per_page' => 1, 'ignore_sticky_posts' => true) );
+            $post_featured = new WP_Query( array(
+                'posts_per_page' => 1,
+                'ignore_sticky_posts' => true,
+                'post__not_in' => array($post_about_id)
+            ) );
 
             if ($post_featured->have_posts()) :
                 while ($post_featured->have_posts()) : $post_featured->the_post();
@@ -17,10 +26,15 @@ echo '
             endif;
 
             $post_semi_max = 3;
-            if (get_field('post_about')) {
+            if ($post_about) {
                 $post_semi_max = 2;
             }
-            $post_semi = new WP_Query( array('posts_per_page' => $post_semi_max, 'offset' => 1, 'ignore_sticky_posts' => true) );
+            $post_semi = new WP_Query( array(
+                'posts_per_page' => $post_semi_max,
+                'offset' => 1,
+                'ignore_sticky_posts' => true,
+                'post__not_in' => array($post_about_id)
+            ) );
 
             if ($post_semi->have_posts()) :
                 echo '
@@ -30,6 +44,10 @@ echo '
                         while ($post_semi->have_posts()) : $post_semi->the_post();
                             include 'content-post-grid.php';
                         endwhile;
+
+                        if ($post_about) {
+                            include 'content-post-about.php';
+                        }
                     echo '
                     </ul>
                 </div>';
@@ -46,10 +64,15 @@ echo '
     <div class="container">
         <div class="row">';
             $posts_offset = 4;
-            if (get_field('post_about')) {
+            if ($post_about) {
                 $posts_offset = 3;
             }
-            $posts = new WP_Query( array('posts_per_page' => 10, 'offset' => $posts_offset, 'ignore_sticky_posts' => true) );
+            $posts = new WP_Query( array(
+                'posts_per_page' => 10,
+                'offset' => $posts_offset,
+                'ignore_sticky_posts' => true,
+                'post__not_in' => array($post_about_id)
+            ) );
 
             if ($posts->have_posts()) :
                 while ($posts->have_posts()) : $posts->the_post();

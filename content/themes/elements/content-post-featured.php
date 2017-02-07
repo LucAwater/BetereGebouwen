@@ -7,7 +7,7 @@ $content = wpautop( get_the_content() );
 $permalink = get_the_permalink();
 $date = get_the_date();
 $thumb_id = get_post_thumbnail_id();
-$thumb = wp_get_attachment_image_src($thumb_id, 'medium', true);
+$thumb = wp_get_attachment_image_src($thumb_id, 'hero', true);
 $thumb_url = $thumb[0];
 $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true);
 

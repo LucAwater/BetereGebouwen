@@ -10,6 +10,7 @@
 // Includes
 require_once('includes/scripts.php');
 require_once('includes/media-sizes.php');
+require_once('includes/admin-pages.php');
 
 // Hide admin bar
 add_filter('show_admin_bar', '__return_false');
