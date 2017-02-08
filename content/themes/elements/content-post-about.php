@@ -9,8 +9,8 @@ $thumb_id = get_post_thumbnail_id();
 $thumb = wp_get_attachment_image_src($thumb_id, 'medium', true);
 ?>
 
-<li class="grid-item grid-item--about col-md-4" style="background-image:url(<?php echo $thumb[0]; ?>)">
-    <figure>
+<li class="grid-item grid-item--about col-md-4">
+    <figure style="background-image:url(<?php echo $thumb[0]; ?>)">
         <figcaption>
             <h3><?php echo $title; ?></h3>
             <a class="btn text--uppercase" href="<?php echo $permalink; ?>">Ons idee <i class="fa fa-arrow-right" aria-hidden="true"></i></a>

@@ -1,8 +1,18 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    
+  <footer class="footer">
+    <div class="footer__body">
+        <?php
+        $logo = get_field('logo', 'option');
+        $logo_url = $logo['sizes']['medium'];
+        $logo_alt = $logo['alt'];
+        ?>
+        <img src="<?php echo $logo_url; ?>" alt="<?php echo $logo_alt; ?>">
+        <div>
+            <?php echo get_field('text', 'option'); ?>
+        </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
