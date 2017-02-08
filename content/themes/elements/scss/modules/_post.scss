@@ -3,13 +3,17 @@
         color: $color-grey-text-light;
     }
 
-    .link--category{
+    *{
+        display: inline-block;
+    }
+
+    &__category{
         margin-right: 3px;
 
         font-size: 1em;
     }
 
-    time{
+    &__date{
         margin-left: 3px;
     }
 }
@@ -28,9 +32,23 @@
         bottom: 0;
         position: absolute;
 
-        padding: 40px 50px 30px;
-
         background-color: $color-blue;
+
+        a{
+            display: block;
+            padding: 40px 20px 30px;
+
+            &:hover,
+            &:focus{
+                text-decoration: none;
+
+                .post-data{
+                    .post-data__arrow{
+                        margin-right: -15px;
+                    }
+                }
+            }
+        }
 
         *{
             color: $color-white;
@@ -89,6 +107,7 @@
     }
 
     &__arrow{
+        transition: .35s;
         margin-left: auto;
     }
 

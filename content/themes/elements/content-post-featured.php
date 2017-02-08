@@ -19,27 +19,29 @@ $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true);
         <img src="<?php echo $thumb_url; ?>" alt="<?php echo $thumb_alt ?>" />
     </figure>
 
-    <div class="col-md-5">
-        <small class="post-meta">
-            <a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a>
-            <span> / </span>
-            <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
-        </small>
+    <div class="col-md-6 col-lg-5">
+        <a href="<?php echo $permalink; ?>">
+            <small class="post-meta">
+                <p class="post-meta__category link link--category"><?php echo $category[0]->cat_name; ?></p>
+                <span class="post-meta__seperator"> / </span>
+                <time class="post-meta__date" datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
+            </small>
 
-        <a class="post-title" href="<?php echo $permalink; ?>"><h2><?php echo $title; ?></h2></a>
+            <h2 class="post-title"><?php echo $title; ?></h2>
 
-        <?php
-        if (strlen($intro) > 200) {
-            echo substr($intro, 0, 200);
-        } else {
-            echo $intro;
-        }
-        ?>
+            <?php
+            if (strlen($intro) > 200) {
+                echo substr($intro, 0, 200);
+            } else {
+                echo $intro;
+            }
+            ?>
 
-        <div class="post-data">
-            <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
-            <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('', '1', '%'); ?></p>
-            <p class="post-data__arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></p>
-        </div>
+            <div class="post-data">
+                <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+                <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('', '1', '%'); ?></p>
+                <p class="post-data__arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></p>
+            </div>
+        </a>
     </div>
 </li>
