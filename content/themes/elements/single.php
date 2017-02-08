@@ -25,11 +25,11 @@ if (have_posts()) :
             $categoryField = get_field('displayCategory');
             $category = get_term_by('id', $categoryField, 'category');
             $category_name = $category->name;
-            $category_url = get_category_link( get_field('displayCategory') );
+            $category_link = get_category_link( get_field('displayCategory') );
         } else {
             $category = get_the_category();
             $category_name = $category[0]->cat_name;
-            $category_url = get_category_link( get_cat_ID($category_name) );
+            $category_link = get_category_link( get_cat_ID($category_name) );
         }
         ?>
 
@@ -50,9 +50,21 @@ if (have_posts()) :
                         <!-- author -->
                     </div>
                     <div class="col-md-7 col-md-offset-1">
-                        <small class="post-meta"><a class="link link--category" href="<?php echo $category_url; ?>"><?php echo $category_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>
+                        <small class="post-meta">
+                            <a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category_name; ?></a>
+                            <span> / </span>
+                            <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
+                        </small>
+
                         <h1><?php the_title(); ?></h1>
-                        <small>Leestijd: <?php echo get_field('readingTime'); ?></small>
+
+                        <div class="post-data">
+                            <small class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></small>
+                            <small class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('', '1', '%'); ?></small>
+                            <span class="post-data__seperator">&middot;</span>
+                            <small>Leestijd: <?php echo get_field('readingTime'); ?></small>
+                        </div>
+
                     </div>
                 </div>
             </header>
@@ -96,7 +108,7 @@ if (have_posts()) :
                 </div>
             </footer>
 
-            <!--
+
             <div id="comments" class="comments-area">
             <?php
             //Get only the approved comments
@@ -120,7 +132,7 @@ if (have_posts()) :
 
             <?php comment_form(); ?>
             </div>
-            -->
+
         </article>
 
         <?php if ($related) : ?>

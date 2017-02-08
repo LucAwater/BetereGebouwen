@@ -13,3 +13,92 @@
         margin-left: 3px;
     }
 }
+
+.post--featured{
+    margin-bottom: 30px;
+    margin-top: -30px;
+    padding-bottom: 60px;
+
+    figure{
+        width: calc(100% + 16%);
+        margin-left: -8%;
+    }
+
+    > div{
+        bottom: 0;
+        position: absolute;
+
+        padding: 40px 50px 30px;
+
+        background-color: $color-blue;
+
+        *{
+            color: $color-white;
+        }
+
+        .post-data__comments,
+        .post-data__comments .fa{
+            color: rgba($color-white, .5);
+        }
+
+        .post-meta{
+            display: block;
+            margin-bottom: 15px;
+
+            span,
+            time{
+                color: rgba($color-white, .5);
+            }
+        }
+
+        h1,h2{
+            @include font-bold{
+                font-size: 2.188em; //35px
+            }
+
+            margin-bottom: 15px;
+        }
+
+        p{
+            font-size: 1.125em; //18px
+        }
+
+        .post-data{
+            margin-top: 40px;
+
+            .icon-arrow{
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.post-data{
+    @include flexbox{
+        align-items: center;
+    }
+
+    &__likes{
+        margin-right: 25px;
+
+        color: $color-blue;
+    }
+
+    &__comments{
+        color: #929292;
+    }
+
+    &__arrow{
+        margin-left: auto;
+    }
+
+    &__seperator{
+        margin: 0 15px;
+    }
+
+    body.single-post &{
+        *:not(.post-data__likes):not(.post-data__likes.fa){
+            color: #929292;
+        }
+    }
+}

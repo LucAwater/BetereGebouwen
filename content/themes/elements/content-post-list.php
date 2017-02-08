@@ -16,8 +16,18 @@ $thumb = get_the_post_thumbnail( $post->ID, 'thumbnail' );
         </div>
 
         <div class="media__body">
-            <small class="post-meta"><a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a> / <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time></small>
+            <small class="post-meta">
+                <a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a>
+                <span> / </span>
+                <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
+            </small>
+
             <a class="post__title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+
+            <div class="post-data">
+                <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+                <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('0', '1', '%'); ?></p>
+            </div>
         </div>
     </div>
 </li>

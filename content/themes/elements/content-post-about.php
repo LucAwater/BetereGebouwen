@@ -21,5 +21,10 @@ $thumb = get_the_post_thumbnail( $post_about[0]->ID, 'thumbnail' );
 
             <a href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
         </figcaption>
+
+        <div class="post-data">
+            <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+            <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('0', '1', '%'); ?></p>
+        </div>
     </figure>
 </li>
