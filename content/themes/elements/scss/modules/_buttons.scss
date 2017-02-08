@@ -14,6 +14,16 @@
         color: $color-white;
         text-decoration: none;
         background-color: darken($color-blue, 15%);
+
+        .fa{
+            padding-left: 10px;
+            margin-right: -10px;
+        }
+    }
+
+    .fa{
+        transition: .35s;
+        margin-left: 10px;
     }
 
     &--linkedin{

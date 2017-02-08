@@ -5,26 +5,15 @@ $category = get_the_category( $post_about[0]->ID );
 $category_link = get_category_link( $category[0]->term_id );
 $permalink = get_the_permalink();
 $date = DateTime::createFromFormat("Y-m-d H:i:s", $post_about[0]->post_date);
-$thumb = get_the_post_thumbnail( $post_about[0]->ID, 'thumbnail' );
+$thumb_id = get_post_thumbnail_id();
+$thumb = wp_get_attachment_image_src($thumb_id, 'medium', true);
 ?>
 
-<li class="grid-item grid-item--about col-md-4">
+<li class="grid-item grid-item--about col-md-4" style="background-image:url(<?php echo $thumb[0]; ?>)">
     <figure>
-        <a href="<?php echo $permalink; ?>"><?php echo $thumb; ?></a>
-
         <figcaption>
-            <small class="post-meta">
-                <a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a>
-                <span> / </span>
-                <time datetime="<?php echo $date->format('j F Y'); ?>"><?php echo $date->format('j F Y'); ?></time>
-            </small>
-
-            <a href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+            <h3><?php echo $title; ?></h3>
+            <a class="btn text--uppercase" href="<?php echo $permalink; ?>">Ons idee <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </figcaption>
-
-        <div class="post-data">
-            <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
-            <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('0', '1', '%'); ?></p>
-        </div>
     </figure>
 </li>
