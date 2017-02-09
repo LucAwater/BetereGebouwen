@@ -111,33 +111,65 @@ if (have_posts()) :
                     </div>
                 </div>
             </footer>
-
-
-            <div id="comments" class="comments-area">
-            <?php
-            //Get only the approved comments
-            $args = array(
-                'status' => 'approve'
-            );
-
-            // The comment Query
-            $comments_query = new WP_Comment_Query;
-            $comments = $comments_query->query( $args );
-
-            // Comment Loop
-            if ( $comments ) {
-                foreach ( $comments as $comment ) {
-                    echo '<p>' . $comment->comment_content . '</p>';
-                }
-            } else {
-                echo 'No comments found.';
-            }
-            ?>
-
-            <?php comment_form(); ?>
-            </div>
-
         </article>
+
+        <?php
+        //Get only the approved comments
+        $commenter = wp_get_current_commenter();
+        $req = get_option( 'require_name_email' );
+        $aria_req = ( $req ? " aria-required='true'" : '' );
+
+        $fields =  array(
+          'author' =>
+            '<p class="comment-form-author"><label for="author">' . __( 'Naam', 'domainreference' ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+            '" size="30"' . $aria_req . ' /></p>',
+
+          'email' =>
+            '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+            '" size="30"' . $aria_req . ' /></p>'
+        );
+
+        $args = array(
+            'status' => 'approve',
+            'post_id' => $post->ID
+        );
+
+        // The comment Query
+        $comments_query = new WP_Comment_Query;
+        $comments = $comments_query->query( $args );
+
+        // Comment Loop
+        if ( $comments ) :
+            ?>
+            <section class="section section--border-top">
+                <div class="container">
+                    <div class="section__header row">
+                        <div class="col-md-7 col-md-offset-3">
+                            <h2>Reacties</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-3">
+                            <?php
+                            foreach ( $comments as $comment ) {
+                                include 'comment.php';
+                            }
+
+                            $args_form = array(
+                                'comment_notes_after' => '',
+                                'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+                                'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+                                'label_submit' => 'Versturen',
+                                'title_reply' => 'Schrijf een reactie',
+                                'comment_notes_before' => '<p class="comment-notes">Uw emailadres wordt niet getoond</p>',
+                            );
+                            comment_form($args_form);
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
 
         <?php if ($related) : ?>
             <section class="section section--bg">

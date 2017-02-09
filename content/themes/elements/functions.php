@@ -18,6 +18,13 @@ add_filter('show_admin_bar', '__return_false');
 // Add support for automatic RSS feed links
 add_theme_support( 'automatic-feed-links' );
 
+// Remove fields from comments form
+function comment_form_disable_fields($fields) {
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','comment_form_disable_fields');
+
 // Allow svg files to be added to the media folder
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
