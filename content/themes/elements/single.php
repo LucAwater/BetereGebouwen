@@ -47,7 +47,19 @@ if (have_posts()) :
             <header class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <!-- author -->
+                        <div class="author">
+                            <?php if (get_avatar_url(get_the_author_meta( 'ID' ), 60)) : ?>
+                                <img class="author__image" src="<?php echo get_avatar_url(get_the_author_meta( 'ID' ), 60); ?>">
+                            <?php endif; ?>
+
+                            <?php if (get_the_author_meta('first_name') && get_the_author_meta('last_name')): ?>
+                                <small class="author__name"><?php echo get_the_author_meta( 'first_name' ) . ' ' . get_the_author_meta('last_name'); ?></small>
+                            <?php else: ?>
+                                <small class="author__name"><?php echo get_the_author_meta( 'display_name' ); ?></small>
+                            <?php endif; ?>
+
+                            <small class="author__function"><?php echo get_field('functionTitle', 'user_' . get_the_author_meta( 'ID' )); ?></small>
+                        </div>
                     </div>
                     <div class="col-md-7 col-md-offset-1">
                         <small class="post-meta">
