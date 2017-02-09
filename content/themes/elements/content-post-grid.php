@@ -24,7 +24,7 @@ $thumb = get_the_post_thumbnail( $post->ID, 'thumbnail' );
         </figcaption>
 
         <div class="post-data">
-            <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+            <p class="post-data__likes"><?php echo do_shortcode('[dot_recommends]'); ?></p>
             <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('0', '1', '%'); ?></p>
         </div>
     </figure>

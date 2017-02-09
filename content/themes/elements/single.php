@@ -71,8 +71,8 @@ if (have_posts()) :
                         <h1><?php the_title(); ?></h1>
 
                         <div class="post-data">
-                            <small class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></small>
-                            <small class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('', '1', '%'); ?></small>
+                            <small class="post-data__likes"><?php echo do_shortcode('[dot_recommends]'); ?></small>
+                            <small class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('0', '1', '%'); ?></small>
                             <?php
                             if (get_field('readingTime')) {
                                 echo '<span class="post-data__seperator">&middot;</span>';

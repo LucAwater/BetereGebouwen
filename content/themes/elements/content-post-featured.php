@@ -38,7 +38,6 @@ $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true);
             ?>
 
             <div class="post-data">
-                <p class="post-data__likes"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
                 <p class="post-data__comments"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo comments_number('', '1', '%'); ?></p>
                 <p class="post-data__arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></p>
             </div>
