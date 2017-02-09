@@ -15,9 +15,18 @@
         > a{
             width: 100%;
             display: block;
+            overflow: hidden;
 
             img{
                 width: 100%;
+                transition: .5s;
+            }
+
+            &:hover,
+            &:focus{
+                img{
+                    transform: scale(1.1);
+                }
             }
         }
 
@@ -35,6 +44,13 @@
                 @include font-medium{
                     color: #222;
                     font-size: 1.5em; //24px
+                }
+
+                transition: .2s;
+
+                &:hover,
+                &:focus{
+                    color: $color-blue;
                 }
             }
         }
