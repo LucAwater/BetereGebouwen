@@ -17,6 +17,10 @@
         @media ($md) {
             padding-top: 30px;
             padding-bottom: 30px;
+
+            img{
+                width: 100%;
+            }
         }
     }
 }

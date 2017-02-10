@@ -48,17 +48,17 @@ if (have_posts()) :
                 <div class="row">
                     <div class="col-md-2">
                         <div class="author">
-                            <?php if (get_avatar_url(get_the_author_meta( 'ID' ), 60)) : ?>
-                                <img class="author__image" src="<?php echo get_avatar_url(get_the_author_meta( 'ID' ), 60); ?>">
+                            <?php if (get_field('author_photo')) : ?>
+                                <img class="author__image" src="<?php echo get_field('author_photo')['sizes']['author']; ?>">
                             <?php endif; ?>
 
-                            <?php if (get_the_author_meta('first_name') && get_the_author_meta('last_name')): ?>
-                                <small class="author__name"><?php echo get_the_author_meta( 'first_name' ) . ' ' . get_the_author_meta('last_name'); ?></small>
-                            <?php else: ?>
-                                <small class="author__name"><?php echo get_the_author_meta( 'display_name' ); ?></small>
+                            <?php if (get_field('author_name')) : ?>
+                                <small class="author__name"><?php echo get_field('author_name'); ?></small>
                             <?php endif; ?>
 
-                            <small class="author__function"><?php echo get_field('functionTitle', 'user_' . get_the_author_meta( 'ID' )); ?></small>
+                            <?php if (get_field('author_function')) : ?>
+                                <small class="author__function"><?php echo get_field('author_function'); ?></small>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-md-7 col-md-offset-1">

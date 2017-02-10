@@ -5,7 +5,7 @@ $category = get_the_category( $post_about[0]->ID );
 $category_link = get_category_link( $category[0]->term_id );
 $permalink = get_the_permalink($post_about_id);
 $date = DateTime::createFromFormat("Y-m-d H:i:s", $post_about[0]->post_date);
-$thumb_id = get_post_thumbnail_id();
+$thumb_id = get_post_thumbnail_id($post_about_id);
 $thumb = wp_get_attachment_image_src($thumb_id, 'medium', true);
 ?>
 
