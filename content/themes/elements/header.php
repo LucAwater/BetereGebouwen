@@ -49,6 +49,21 @@
                 ?>
                 </ul>
             </nav>
+
+            <div class="mobile-menu">
+                <?php global $wpse16243_title; ?>
+                <a class="mobile-menu__trigger"><?php echo $wpse16243_title; ?></a>
+                <ul class="mobile-menu__list">
+                <?php
+                $nav = array(
+                    'theme_location'  => 'menu_primary',
+                    'container'       => '',
+                    'items_wrap'      => '%3$s'
+                );
+                wp_nav_menu( $nav );
+                ?>
+                </ul>
+            </div>
         </div>
     </header>
 

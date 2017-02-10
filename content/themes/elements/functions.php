@@ -18,6 +18,19 @@ add_filter('show_admin_bar', '__return_false');
 // Add support for automatic RSS feed links
 add_theme_support( 'automatic-feed-links' );
 
+// Assign global variable for mobile menu
+add_filter( 'wp_nav_menu_objects', 'wpse16243_wp_nav_menu_objects' );
+function wpse16243_wp_nav_menu_objects( $sorted_menu_items )
+{
+    foreach ( $sorted_menu_items as $menu_item ) {
+        if ( $menu_item->current || $menu_item->current_item_parent ) {
+            $GLOBALS['wpse16243_title'] = $menu_item->title;
+            break;
+        }
+    }
+    return $sorted_menu_items;
+}
+
 // Remove fields from comments form
 function comment_form_disable_fields($fields) {
     unset($fields['url']);
