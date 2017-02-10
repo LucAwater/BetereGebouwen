@@ -1,5 +1,9 @@
 .section{
-    padding: 60px 15px;
+    padding: 30px 15px;
+
+    @media ($md) {
+        padding: 60px 15px;
+    }
 
     &__header{
         margin-bottom: 30px;

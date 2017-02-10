@@ -5,6 +5,16 @@
 }
 
 .grid-item{
+    margin-bottom: 30px;
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+
+    @media ($md) {
+        margin-bottom: 0;
+    }
+
     figure{
         width: 100%;
         height: 100%;
