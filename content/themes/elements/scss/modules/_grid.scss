@@ -47,10 +47,14 @@
                 }
 
                 transition: .2s;
+            }
 
+            .post-title{
                 &:hover,
                 &:focus{
-                    color: $color-blue;
+                    h3{
+                        color: $color-blue;
+                    }
                 }
             }
         }

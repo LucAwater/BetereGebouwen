@@ -20,7 +20,7 @@ $thumb = get_the_post_thumbnail( $post->ID, 'thumbnail' );
                 <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
             </small>
 
-            <a href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
+            <a class="post-title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
         </figcaption>
 
         <div class="post-data">

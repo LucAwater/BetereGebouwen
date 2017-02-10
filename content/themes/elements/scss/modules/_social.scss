@@ -1,0 +1,16 @@
+.heateor_sss_sharing_container{
+    .heateor_sss_sharing_ul{
+        @include flexbox{
+            justify-content: center;
+
+            li.heateorSssSharingRound{
+                width: 170px;
+                display: inherit;
+                
+                .heateorSssSharing{
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
