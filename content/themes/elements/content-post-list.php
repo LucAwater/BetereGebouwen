@@ -5,8 +5,13 @@ $category = get_the_category( $post->ID );
 $category_link = get_category_link( $category[0]->term_id );
 $content = wpautop( get_the_content() );
 $permalink = get_the_permalink();
-$date = get_the_date();
 $thumb = get_the_post_thumbnail( $post->ID, 'thumbnail' );
+
+if (get_field('date')) {
+    $date = get_field('date');
+} else {
+    $date = get_the_date();
+}
 ?>
 
 <li class="post">

@@ -5,11 +5,16 @@ $category = get_the_category( $post->ID );
 $category_link = get_category_link( $category[0]->term_id );
 $intro = get_field('intro');
 $permalink = get_the_permalink();
-$date = get_the_date();
 $thumb_id = get_post_thumbnail_id();
 $thumb = wp_get_attachment_image_src($thumb_id, 'hero', true);
 $thumb_url = $thumb[0];
 $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true);
+
+if (get_field('date')) {
+    $date = get_field('date');
+} else {
+    $date = get_the_date();
+}
 ?>
 
 <li class="post--featured col-md-12">
