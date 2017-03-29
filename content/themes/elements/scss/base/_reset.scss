@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+html{
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after{
+  box-sizing: inherit;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+ol, ul, li{
+  list-style: none;
+}

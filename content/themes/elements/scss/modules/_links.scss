@@ -1,0 +1,14 @@
+.link{
+    &--category{
+        @include font-medium{
+            color: $color-blue;
+            font-size: .875em; //14px
+            text-transform: uppercase;
+        }
+
+        &:hover,
+        &:focus{
+            text-decoration: none;
+        }
+    }
+}

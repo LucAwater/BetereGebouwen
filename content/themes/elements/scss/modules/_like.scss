@@ -1,0 +1,21 @@
+.dot-irecommendthis{
+    color: $color-blue;
+
+    &:before{
+        content: '\f08a';
+        font-family: FontAwesome;
+        margin-right: 5px;
+    }
+
+    &:hover,
+    &:focus{
+        color: $color-blue;
+        text-decoration: none;
+    }
+
+    &.active{
+        &:before{
+            content: '\f004';
+        }
+    }
+}

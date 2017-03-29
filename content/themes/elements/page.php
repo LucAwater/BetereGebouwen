@@ -2,14 +2,6 @@
 get_header();
 
 /*
- * Check if we are on a WooCommerce page
- * If so, echo content to enable the shortcode
- */
-if( is_woocommerce() ){
-  the_content();
-}
-
-/*
  * Start the ACF page elements loop
  *
  * Important: acf.json must be imported in order to use elements theme from this point forward.

@@ -1,0 +1,13 @@
+@mixin font-openSans{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    @content;
+}
+
+@mixin font-PT{
+    font-family: 'PT Serif', serif;
+    font-style: normal;
+    font-weight: normal;
+    @content;
+}

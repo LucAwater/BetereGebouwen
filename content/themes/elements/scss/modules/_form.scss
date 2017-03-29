@@ -1,0 +1,39 @@
+form{
+    width: 100%;
+
+    > p{
+        margin-bottom: 25px;
+    }
+
+    input[type="submit"]{
+        float: right;
+        height: auto;
+        outline: 0;
+        border: none;
+    }
+}
+
+label{
+    display: block;
+
+    font-size: 0.875em; //14px
+}
+
+input:not([type="submit"]),
+textarea{
+    width: 100%;
+    padding: 0 15px;
+
+    border: 1px solid #e0e0e0;
+}
+
+textarea{
+    margin-top: 1em;
+    padding: 15px;
+}
+
+input{
+    height: 45px;
+
+    line-height: 45px;
+}

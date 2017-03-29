@@ -1,0 +1,32 @@
+.comment{
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid $color-grey;
+
+    &__meta{
+        margin-bottom: 15px;
+
+        strong{
+            font-size: 1.125em;
+        }
+
+        &__seperator,
+        time{
+            @include font-regular{
+                color: $color-grey-text-light;
+            }
+        }
+
+        &__seperator{
+            margin: 0 10px;
+        }
+    }
+}
+
+.comment-respond{
+    h3{
+        margin-bottom: 15px;
+    }
+}

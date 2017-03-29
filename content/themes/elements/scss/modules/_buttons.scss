@@ -1,0 +1,56 @@
+.btn,
+input[type="submit"]{
+    @include font-regular{
+        color: $color-white;
+    }
+
+    padding: 0 30px;
+    display: inline-block;
+
+    line-height: 50px;
+    background-color: $color-blue;
+
+    &:hover,
+    &:focus{
+        color: $color-white;
+        text-decoration: none;
+        background-color: darken($color-blue, 15%);
+
+        .fa{
+            padding-left: 10px;
+            margin-right: -10px;
+        }
+    }
+
+    .fa{
+        transition: .35s;
+        margin-left: 10px;
+    }
+
+    &.btn--linkedin{
+        background-color: #0173B1;
+
+        &:hover,
+        &:focus{
+            background-color: darken(#0173B1, 15%);
+        }
+    }
+
+    &.btn--twitter{
+        background-color: #1DA1F1;
+
+        &:hover,
+        &:focus{
+            background-color: darken(#1DA1F1, 15%);
+        }
+    }
+
+    &.btn--facebook{
+        background-color: #3B5998;
+
+        &:hover,
+        &:focus{
+            background-color: darken(#3B5998, 15%);
+        }
+    }
+}

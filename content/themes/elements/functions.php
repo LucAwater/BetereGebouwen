@@ -3,50 +3,40 @@
  * @package WordPress
  * @subpackage HTML5_Boilerplate */
 
+ // Add support for post-thumbnails
+ // https://codex.wordpress.org/Post_Thumbnails
+ add_theme_support( 'post-thumbnails' );
+
 // Includes
 require_once('includes/scripts.php');
-
-// Includes: admin
-require_once('includes/admin/acf-page.php');
-
-// Inludes: template functions
-require_once('includes/functions-template/posts.php');
-require_once('includes/functions-template/section.php');
-require_once('includes/functions-template/section-header.php');
-require_once('includes/functions-template/section-grid.php');
-require_once('includes/functions-template/section-slider.php');
-
-// Includes: WooCommerce
-require_once('woocommerce/woo-functions.php');
-require_once('includes/functions-woocommerce/cart-update.php');
-
-// Add support for WooCommerce
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-  add_theme_support( 'woocommerce' );
-}
-
-// Change the WooCommerce paypal icon
-add_filter('woocommerce_paypal_icon', 'custom_woocommerce_paypal_icon');
-
-function custom_woocommerce_paypal_icon( $url ) {
-  $url = get_bloginfo('template_url')."/img/pay-paypal.svg";
-  return $url;
-}
-
-// Initialize mobile detect
-require_once('includes/mobile-detect.php');
-$detect = new Mobile_Detect;
+require_once('includes/media-sizes.php');
+require_once('includes/admin-pages.php');
 
 // Hide admin bar
 add_filter('show_admin_bar', '__return_false');
 
-// Add support for post-thumbnails
-// https://codex.wordpress.org/Post_Thumbnails
-add_theme_support( 'post-thumbnails' );
-
 // Add support for automatic RSS feed links
 add_theme_support( 'automatic-feed-links' );
+
+// Assign global variable for mobile menu
+add_filter( 'wp_nav_menu_objects', 'wpse16243_wp_nav_menu_objects' );
+function wpse16243_wp_nav_menu_objects( $sorted_menu_items )
+{
+    foreach ( $sorted_menu_items as $menu_item ) {
+        if ( $menu_item->current || $menu_item->current_item_parent ) {
+            $GLOBALS['wpse16243_title'] = $menu_item->title;
+            break;
+        }
+    }
+    return $sorted_menu_items;
+}
+
+// Remove fields from comments form
+function comment_form_disable_fields($fields) {
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','comment_form_disable_fields');
 
 // Allow svg files to be added to the media folder
 function cc_mime_types($mimes) {
@@ -62,6 +52,20 @@ function w3_flush_page_custom( $post_id ) {
   if ( function_exists('w3tc_pgcache_flush' ) ):
     w3tc_pgcache_flush();
   endif;
+}
+
+// Remove excess menu classes
+add_filter('nav_menu_css_class', 'menu_remove_classes', 100, 1);
+add_filter('nav_menu_item_id', 'menu_remove_classes', 100, 1);
+add_filter('page_css_class', 'menu_remove_classes', 100, 1);
+
+function menu_remove_classes($var) {
+  $allowed_classes = array(
+    "current-menu-item",
+    "current-menu-parent"
+  );
+
+  return is_array($var) ? array_intersect($var, $allowed_classes) : '';
 }
 
 /* Cleaner image captions */

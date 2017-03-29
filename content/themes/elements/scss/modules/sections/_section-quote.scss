@@ -1,0 +1,11 @@
+.section-quote{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    p{
+        @include font-PT{
+            color: #555;
+            font-size: 1.5em; //24px;
+        }
+    }
+}

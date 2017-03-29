@@ -1,0 +1,62 @@
+.media{
+    @include flexbox{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @media ($md){
+        flex-direction: row;
+    }
+
+    &__image{
+        flex-shrink: 0;
+        margin-bottom: 15px;
+
+        @media ($md){
+            margin-right: 30px;
+            margin-bottom: 0;
+        }
+
+        img{
+            width: 100%;
+        }
+    }
+
+    &__body{
+        > *{
+            margin-bottom: 10px;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Variations
+    @mixin media-reversed{
+        @media ($md){
+            flex-direction: row-reverse;
+
+            .media__image{
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+    }
+
+    @mixin media-align-top{
+        align-items: flex-start;
+
+        .media__body{
+            padding-top: 10px;
+        }
+    }
+
+    &--reversed{
+        @include media-reversed;
+    }
+
+    &--align-top{
+        @include media-align-top;
+    }
+}

@@ -1,0 +1,26 @@
+.section-hero{
+    padding: 0;
+
+    [class*="col-"]{
+        padding: 0;
+    }
+
+    @media ($md) {
+        padding: 60px 15px;
+
+        [class*="col-"]{
+            padding: 0 15px;
+        }
+    }
+
+    body.single-post &{
+        @media ($md) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
