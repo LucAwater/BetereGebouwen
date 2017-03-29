@@ -145,39 +145,38 @@ if (have_posts()) :
         // The comment Query
         $comments_query = new WP_Comment_Query;
         $comments = $comments_query->query( $args );
+        ?>
 
-        // Comment Loop
-        if ( $comments ) :
-            ?>
-            <section class="section section--border-top">
-                <div class="container">
-                    <div class="section__header row">
-                        <div class="col-md-7 col-md-offset-3">
-                            <h2>Reacties</h2>
-                        </div>
+        <section class="section section--border-top">
+            <div class="container">
+                <div class="section__header row">
+                    <div class="col-md-7 col-md-offset-3">
+                        <h2>Reacties</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-md-7 col-md-offset-3">
-                            <?php
+                </div>
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-3">
+                        <?php
+                        if ($comments) {
                             foreach ( $comments as $comment ) {
                                 include 'comment.php';
                             }
+                        }
 
-                            $args_form = array(
-                                'comment_notes_after' => '',
-                                'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-                                'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-                                'label_submit' => 'Versturen',
-                                'title_reply' => 'Schrijf een reactie',
-                                'comment_notes_before' => '<p class="comment-notes">Uw emailadres wordt niet getoond</p>',
-                            );
-                            comment_form($args_form);
-                            ?>
-                        </div>
+                        $args_form = array(
+                            'comment_notes_after' => '',
+                            'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+                            'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+                            'label_submit' => 'Versturen',
+                            'title_reply' => 'Schrijf een reactie',
+                            'comment_notes_before' => '<p class="comment-notes">Uw emailadres wordt niet getoond</p>',
+                        );
+                        comment_form($args_form);
+                        ?>
                     </div>
                 </div>
-            </section>
-        <?php endif; ?>
+            </div>
+        </section>
 
         <?php if ($related) : ?>
             <section class="section section--bg">
