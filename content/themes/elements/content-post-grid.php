@@ -23,6 +23,7 @@ if (get_field('date')) {
                 <a class="link link--category" href="<?php echo $category_link; ?>"><?php echo $category[0]->cat_name; ?></a>
                 <span> / </span>
                 <time datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
+                <em class="post-meta__author">door <?php echo $author; ?></em>
             </small>
 
             <a class="post-title" href="<?php echo $permalink; ?>"><h3><?php echo $title; ?></h3></a>
