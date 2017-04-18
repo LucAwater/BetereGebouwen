@@ -6,6 +6,7 @@ $category_link = get_category_link( $category[0]->term_id );
 $content = wpautop( get_the_content() );
 $permalink = get_the_permalink();
 $thumb = get_the_post_thumbnail( $post->ID, 'thumbnail' );
+$author = get_field('author_name');
 
 if (get_field('date')) {
     $date = get_field('date');
