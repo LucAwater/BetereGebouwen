@@ -99,6 +99,10 @@
             time{
                 color: rgba($color-white, .5);
             }
+
+            &__author {
+              display: block;
+            }
         }
 
         h1,h2{

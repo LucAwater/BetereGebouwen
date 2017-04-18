@@ -27,6 +27,10 @@ DS_Store
 !/media/
 media/*
 
+/node_modules
+/node_modules/*
+node_modules/*
+
 local-config.php
 *.tmproj
 

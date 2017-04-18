@@ -4,6 +4,7 @@ $title = get_the_title();
 $category = get_the_category( $post->ID );
 $category_link = get_category_link( $category[0]->term_id );
 $intro = get_field('intro');
+$author = get_field('author_name');
 $permalink = get_the_permalink();
 $thumb_id = get_post_thumbnail_id();
 $thumb = wp_get_attachment_image_src($thumb_id, 'hero', true);
@@ -28,6 +29,7 @@ if (get_field('date')) {
                 <p class="post-meta__category link link--category"><?php echo $category[0]->cat_name; ?></p>
                 <span class="post-meta__seperator"> / </span>
                 <time class="post-meta__date" datetime="<?php echo $date; ?>"><?php echo $date; ?></time>
+                <em class="post-meta__author">door <?php echo $author; ?></em>
             </small>
 
             <h2 class="post-title"><?php echo $title; ?></h2>
