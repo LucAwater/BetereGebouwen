@@ -18,6 +18,17 @@ add_filter('show_admin_bar', '__return_false');
 // Add support for automatic RSS feed links
 add_theme_support( 'automatic-feed-links' );
 
+// Set emails
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+
+function new_mail_from($old) {
+  return 'post@beteregebouwen.nl';
+}
+function new_mail_from_name($old) {
+  return 'Beteregebouwen';
+}
+
 // Assign global variable for mobile menu
 add_filter( 'wp_nav_menu_objects', 'wpse16243_wp_nav_menu_objects' );
 function wpse16243_wp_nav_menu_objects( $sorted_menu_items )
