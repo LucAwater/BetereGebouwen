@@ -35,11 +35,7 @@ if (get_field('date')) {
             <h2 class="post-title"><?php echo $title; ?></h2>
 
             <?php
-            if (strlen($intro) > 200) {
-                echo substr($intro, 0, 200);
-            } else {
-                echo $intro;
-            }
+            echo $intro;
             ?>
 
             <div class="post-data">
