@@ -6,8 +6,10 @@ function enqueue_theme_scripts() {
   wp_enqueue_script( 'jquery' );
 
   if( WP_DEBUG ):
+    wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/vendor/cookie.js', 'jquery', false, true );
     wp_enqueue_script( 'app', get_template_directory_uri() . '/js/main.js', 'jquery', false, true );
   else:
+    wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/vendor/cookie.js', 'jquery', false, true );
     wp_enqueue_script( 'app', get_template_directory_uri() . '/js/main.js', 'jquery', false, true );
   endif;
 }

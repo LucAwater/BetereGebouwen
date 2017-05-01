@@ -43,6 +43,7 @@ gulp.task('js', function () {
     .pipe(order([
         'js/core/slimmage.js',
         'js/core/jquery.matchHeight.js',
+        'js/vendor/cookie.js',
         'js/main.js'
     ], { base: '.' }))
         .pipe(plumber())
