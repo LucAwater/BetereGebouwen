@@ -4,7 +4,7 @@
     right: 30px;
     z-index: 999;
     min-height: 260px;
-    width: 260px;
+    width: 320px;
     padding: 20px 20px;
     background-color: white;
     border: 1px solid #eeeeee;
@@ -19,13 +19,14 @@
     p.text-bold {
         color: #000;
         padding-bottom: 15px;
-        font-size: 20px;
+        font-size: 1.5em;
         font-weight: 500;
     }
     small {
         display: inline-block;
         color: #000;
         margin-bottom: 10px;
+        font-size:1.125em;
     }
     input{
       font-size:14px;
@@ -33,6 +34,7 @@
     .btn {
         margin-top: 15px;
         border:0;
+        font-size:1.125em;
     }
     &__close {
         cursor: pointer;
