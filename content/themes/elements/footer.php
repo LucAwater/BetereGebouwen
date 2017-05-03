@@ -19,7 +19,7 @@
 
       <div class="help-popup__content">
           <p class="text-bold">Nieuwsbrief</p>
-          <small class="callMeBackRequest">Blijf op de hoogte</small>
+          <small class="callMeBackRequest">Ontvang maandelijks de nieuwste artikelen</small>
 
           <form class="form-group callMeBackRequest Formisimo_clocked_71859" target="_blank" action="https://www.nieuwsbriefsysteem.nl/p/inschrijven/10862/e18289.html" accept-charset="UTF-8" method="post">
               <input type="email" class="form-control" placeholder="Uw e-mailadres" name="nls[email_address]" id="nls_email_address" value="">
@@ -35,6 +35,7 @@
           <p class="text-bold">Er is iets fout gegaan met het doorgeven van uw e-mailadres!</p>
       </div>
   </div>
+  <div class="layover"></div>
   <!-- Scripts -->
   <?php wp_footer(); ?>
 

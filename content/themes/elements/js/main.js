@@ -19,24 +19,26 @@ function mobileMenu() {
 var helpTimeout;
 
 function helpPopupTimeout(closedCookie) {
-    console.log('Cookie: ' + closedCookie);
     var helpPopup = ".help-popup";
     if (closedCookie !== 'true') { // If no cookie was found, then set timeout.
         helpTimeout = setTimeout(function () {
-            $('.help-popup').addClass("help-popup--active");
+            $('.help-popup').fadeIn();
+            $('.layover').fadeIn();
         }, 15000); // 15 Seconds default.
     }
 }
 function closeHelpPopup() {
     clearTimeout(helpTimeout);
-    $('.help-popup').removeClass("help-popup--active");
+    $('.help-popup').fadeOut();
+    $('.layover').hide();
     // On close: store in Cookie and check if exists
     Cookies.set('popupClosed', 'true', { expires: 60 });
 }
 $('.btn-signup').on('click', function(e){
   e.preventDefault();
   clearTimeout(helpTimeout);
-  $('.help-popup').removeClass("help-popup--active");
+  $('.help-popup').hide();
+  $('.layover').hide();
   // On close: store in Cookie and check if exists
   Cookies.set('popupClosed', 'true', { expires: 60 });
   $(this).closest("form").submit();
