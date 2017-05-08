@@ -18,7 +18,7 @@
       <div class="help-popup__close" onclick="closeHelpPopup()"><i class="fa fa-close"></i></div>
 
       <div class="help-popup__content">
-          <p class="text-bold">Nieuwsbrief</p>
+          <p class="text-bold">Update</p>
           <small class="callMeBackRequest">Ontvang maandelijks de nieuwste artikelen</small>
 
           <form class="form-group callMeBackRequest Formisimo_clocked_71859" target="_blank" action="https://www.nieuwsbriefsysteem.nl/p/inschrijven/10862/e18289.html" accept-charset="UTF-8" method="post">
